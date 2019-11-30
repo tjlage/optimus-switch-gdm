@@ -12,10 +12,13 @@ echo 'Removing optimus-switch'
 rm -rf /usr/local/bin/set-intel.sh
 rm -rf /usr/local/bin/set-nvidia.sh
 rm -rf /usr/local/bin/optimus.sh
+rm -rf /usr/local/bin/disable_gpu.sh
 rm -rf /etc/switch
 
 systemctl disable disable-nvidia.service
+systemctl disable disable_gpu.service
 rm -rf /etc/systemd/system/disable-nvidia.service
+rm -rf /etc/systemd/system/disable_gpu.service
 
 rm -rf /etc/X11/mhwd.d/99-nvidia.conf
 rm -rf /etc/X11/xorg.conf.d/99-nvidia.conf

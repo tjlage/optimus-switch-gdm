@@ -67,6 +67,8 @@ cp /etc/switch/set-intel.sh /usr/local/bin/set-intel.sh
 
 cp /etc/switch/set-nvidia.sh /usr/local/bin/set-nvidia.sh
 
+cp /etc/switch/disable_gpu.sh /usr/local/bin/disable_gpu.sh
+
 cp /etc/switch/optimus.desktop /usr/local/share/optimus.desktop
 
 sleep 1
@@ -74,6 +76,12 @@ echo 'Copying disable-nvidia.service to /etc/systemd/system/'
 cp /etc/switch/intel/disable-nvidia.service /etc/systemd/system/disable-nvidia.service
 chown root:root /etc/systemd/system/disable-nvidia.service
 chmod 644 /etc/systemd/system/disable-nvidia.service
+
+sleep 1
+echo 'Copying disable_gpu.service to /etc/systemd/system/'
+cp /etc/switch/intel/disable_gpu.service /etc/systemd/system/disable_gpu.service
+chown root:root /etc/systemd/system/disable_gpu.service
+chmod 644 /etc/systemd/system/disable_gpu.service
 
 sleep 1
 echo 'Creating symlinks ("file exists" errors can be ignored)....... '
@@ -92,6 +100,7 @@ sleep 1
 echo 'Setting permissions........'
 chmod +x /usr/local/bin/set-intel.sh
 chmod +x /usr/local/bin/set-nvidia.sh
+chmod +x /usr/local/bin/disable_gpu.sh
 chmod a+rx /usr/local/bin/optimus.sh
 chmod a+rx /etc/switch/intel/no-optimus.sh
 chmod a+rx /etc/switch/nvidia/optimus.sh
