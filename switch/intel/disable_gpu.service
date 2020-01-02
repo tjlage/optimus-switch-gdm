@@ -1,8 +1,9 @@
 [Unit]
 Description=Disable GPU
+After=suspend.target
  
 [Service]
 ExecStart=/etc/switch/disable_gpu.sh
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.target suspend.target
